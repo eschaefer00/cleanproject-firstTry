@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class TodoRepositoryBridge implements TodoRepository {
@@ -18,17 +19,17 @@ public class TodoRepositoryBridge implements TodoRepository {
     }
     @Override
     public List<Todo> findAllTodos() {
-        return null;
+        return this.springDataTodoRepository.findAllTodos();
     }
 
     @Override
     public List<Todo> findTodoByCategory(int category) {
-        return null;
+        return this.springDataTodoRepository.findTodoByCategory(category);
     }
 
     @Override
-    public Todo findTodoById() {
-        return null;
+    public Todo findTodoById(UUID id) {
+        return this.springDataTodoRepository.findTodoById(id);
     }
 
     @Override

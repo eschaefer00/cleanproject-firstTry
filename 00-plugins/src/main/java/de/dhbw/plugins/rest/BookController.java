@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 public class BookController {
 
     private final BookApplicationService bookApplicationService;
-
     private final BookToBookResourceMapper bookToBookResourceMapper;
 
     @Autowired

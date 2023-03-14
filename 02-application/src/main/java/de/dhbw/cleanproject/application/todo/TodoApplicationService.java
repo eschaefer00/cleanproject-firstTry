@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TodoApplicationService {
@@ -16,4 +17,6 @@ public class TodoApplicationService {
 
 
     public List<Todo> findAllTodos(){return this.todoRepository.findAllTodos();}
+
+    public Todo findTodoById(UUID id){return this.todoRepository.findTodoById(id);}
 }
