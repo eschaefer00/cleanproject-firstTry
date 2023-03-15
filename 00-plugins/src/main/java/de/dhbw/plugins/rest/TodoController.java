@@ -32,7 +32,7 @@ public class TodoController {
 
     @RequestMapping(method = RequestMethod.GET)
     public TodoResource getTodo(UUID id) {
-       // return this.todoApplicationService.findTodoById(id);
+       // return this.todoApplicationService.findTodoById(id).stream().map(todoToTodoResourceMapper);
         return null;
     }
 
