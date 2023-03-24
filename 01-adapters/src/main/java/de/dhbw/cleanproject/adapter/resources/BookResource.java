@@ -1,4 +1,4 @@
-package de.dhbw.cleanproject.adapter.book.resources;
+package de.dhbw.cleanproject.adapter.resources;
 
 public class BookResource {
 

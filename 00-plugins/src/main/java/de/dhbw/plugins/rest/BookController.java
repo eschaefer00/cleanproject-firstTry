@@ -1,8 +1,8 @@
 package de.dhbw.plugins.rest;
 
 import de.dhbw.cleanproject.application.book.BookApplicationService;
-import de.dhbw.cleanproject.adapter.book.resources.BookResource;
-import de.dhbw.cleanproject.adapter.book.mappers.BookToBookResourceMapper;
+import de.dhbw.cleanproject.adapter.resources.BookResource;
+import de.dhbw.cleanproject.adapter.mappers.BookToBookResourceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

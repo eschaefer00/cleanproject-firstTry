@@ -1,6 +1,6 @@
-package de.dhbw.cleanproject.domain.book.repositories;
+package de.dhbw.cleanproject.domain.repositories;
 
-import de.dhbw.cleanproject.domain.book.models.Book;
+import de.dhbw.cleanproject.domain.models.Book;
 
 import java.util.List;
 

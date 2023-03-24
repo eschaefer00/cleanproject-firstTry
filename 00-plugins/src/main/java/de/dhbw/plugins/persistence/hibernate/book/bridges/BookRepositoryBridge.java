@@ -1,7 +1,7 @@
 package de.dhbw.plugins.persistence.hibernate.book.bridges;
 
-import de.dhbw.cleanproject.domain.book.models.Book;
-import de.dhbw.cleanproject.domain.book.repositories.BookRepository;
+import de.dhbw.cleanproject.domain.models.Book;
+import de.dhbw.cleanproject.domain.repositories.BookRepository;
 import de.dhbw.plugins.persistence.hibernate.book.springdata.SpringDataBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

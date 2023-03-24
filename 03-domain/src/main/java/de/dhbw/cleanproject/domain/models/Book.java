@@ -1,4 +1,4 @@
-package de.dhbw.cleanproject.domain.book.models;
+package de.dhbw.cleanproject.domain.models;
 
 import java.util.UUID;
 import org.apache.commons.lang3.Validate;
