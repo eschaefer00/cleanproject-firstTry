@@ -1,8 +1,8 @@
-package de.dhbw.cleanproject.adapter.book.mappers;
+package de.dhbw.cleanproject.adapter.mappers;
 
-import de.dhbw.cleanproject.adapter.book.resources.UserResource;
+import de.dhbw.cleanproject.adapter.resources.UserResource;
 import org.springframework.stereotype.Component;
-import de.dhbw.cleanproject.domain.book.models.User;
+import de.dhbw.cleanproject.domain.models.User;
 
 import java.util.function.Function;
 @Component

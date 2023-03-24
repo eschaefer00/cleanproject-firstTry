@@ -1,7 +1,8 @@
 package de.dhbw.plugins.persistence.hibernate.book.bridges;
 
-import de.dhbw.cleanproject.domain.book.models.Todo;
-import de.dhbw.cleanproject.domain.book.repositories.TodoRepository;
+import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
+import de.dhbw.cleanproject.domain.models.todo.Todo;
+import de.dhbw.cleanproject.domain.repositories.TodoRepository;
 import de.dhbw.plugins.persistence.hibernate.book.springdata.SpringDataTodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,6 +26,11 @@ public class TodoRepositoryBridge implements TodoRepository {
     @Override
     public List<Todo> findTodoByCategory(int category) {
         return this.springDataTodoRepository.findTodoByCategory(category);
+    }
+
+    @Override
+    public List<Todo> findTodoByPriority(PriorityTodo priority){
+        return this.springDataTodoRepository.findTodoByPriority(priority);
     }
 
     @Override

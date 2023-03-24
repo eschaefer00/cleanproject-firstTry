@@ -1,17 +1,19 @@
 package de.dhbw.plugins.persistence.hibernate.book.springdata;
 
-import de.dhbw.cleanproject.domain.book.models.Todo;
+import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
+import de.dhbw.cleanproject.domain.models.todo.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface SpringDataTodoRepository extends JpaRepository<Todo, UUID> {
-    Todo findTodoById(final UUID id);
 
-    List<Todo> findAllTodos();
+    @Query("SELECT t FROM Todo t WHERE t.categoryAggregateId = ?1")
+    List<Todo> findByCategoryAggregateId(UUID categoryAggregateId);
 
-    List<Todo> findTodoByCategory(int category);//or real text? how would that link work then
-
+    @Query("SELECT t FROM Todo t WHERE t.priority = ?1")
+    List<Todo> findTodoByPriority(PriorityTodo priority);
 
 }

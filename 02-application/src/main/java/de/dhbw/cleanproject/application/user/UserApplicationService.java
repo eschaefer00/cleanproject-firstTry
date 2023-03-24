@@ -1,6 +1,6 @@
 package de.dhbw.cleanproject.application.user;
 
-import de.dhbw.cleanproject.domain.book.repositories.UserRepository;
+import de.dhbw.cleanproject.domain.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

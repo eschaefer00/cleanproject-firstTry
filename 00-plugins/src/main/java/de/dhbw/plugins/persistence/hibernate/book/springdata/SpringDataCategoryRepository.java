@@ -1,7 +1,8 @@
 package de.dhbw.plugins.persistence.hibernate.book.springdata;
 
-import de.dhbw.cleanproject.domain.book.models.Category;
+import de.dhbw.cleanproject.domain.models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.UUID;
 import java.util.List;

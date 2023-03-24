@@ -1,8 +1,10 @@
 package de.dhbw.cleanproject.application.category;
 
-import de.dhbw.cleanproject.domain.book.repositories.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import de.dhbw.cleanproject.domain.repositories.CategoryRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class CategoryApplicationService {

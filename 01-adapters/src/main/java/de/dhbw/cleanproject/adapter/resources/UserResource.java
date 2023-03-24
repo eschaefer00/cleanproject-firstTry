@@ -1,4 +1,4 @@
-package de.dhbw.cleanproject.adapter.book.resources;
+package de.dhbw.cleanproject.adapter.resources;
 
 import java.time.LocalDate;
 import java.util.UUID;

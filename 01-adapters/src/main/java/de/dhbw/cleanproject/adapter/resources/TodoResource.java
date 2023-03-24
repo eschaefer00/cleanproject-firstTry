@@ -1,4 +1,4 @@
-package de.dhbw.cleanproject.adapter.book.resources;
+package de.dhbw.cleanproject.adapter.resources;
 
 import java.time.LocalDate;
 
@@ -42,4 +42,5 @@ public class TodoResource {
     public int getStatus() {
         return status;
     }
+
 }
