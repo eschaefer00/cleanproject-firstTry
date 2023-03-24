@@ -8,8 +8,4 @@ import java.util.UUID;
 
 public interface SpringDataUserRepository extends JpaRepository<User, UUID> {
 
-    List<User> findAllUsers();
-
-    User findUserById(UUID id);
-
 }

@@ -7,8 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class CategoryApplicationService {
-    private final CategoryRepository categoryRepository;
-    @Autowired
-    public CategoryApplicationService(final CategoryRepository categoryRepository){this.categoryRepository=categoryRepository;}
+@RequiredArgsConstructor
+public class CategoryApplicationService implements CategoryApplication {
+
+   private final CategoryRepository categoryRepository;
+
+   @Override
+   public Boolean existsByIds(UUID id, UUID userId) {
+      return categoryRepository.existsByIds(id, userId);
+   }
+
 }

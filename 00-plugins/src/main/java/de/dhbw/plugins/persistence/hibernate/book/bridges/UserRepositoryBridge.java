@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -21,7 +22,7 @@ public class UserRepositoryBridge implements UserRepository {
 
     public List<User> findAllUsers(){return this.springDataUserRepository.findAll();}
 
-    public User findUserById(UUID id){return this.springDataUserRepository.findUserById(id);}
+    public Optional<User> findUserById(UUID id){return this.springDataUserRepository.findById(id);}
 
     public User save(User user){return this.springDataUserRepository.save(user);}
 }

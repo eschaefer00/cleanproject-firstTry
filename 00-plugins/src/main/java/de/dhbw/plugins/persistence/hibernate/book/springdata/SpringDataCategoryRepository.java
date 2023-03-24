@@ -9,9 +9,7 @@ import java.util.List;
 
 public interface SpringDataCategoryRepository extends JpaRepository<Category, UUID> {
 
-    List<Category> findAllCategories();
-
-    Category findCategoryById(UUID id);
-
+    @Query("SELECT c.id FROM Category c WHERE c.id = ?1 and c.userId = ?2")
+    List<UUID> selectAllByIds(UUID id, UUID userId);
 
 }

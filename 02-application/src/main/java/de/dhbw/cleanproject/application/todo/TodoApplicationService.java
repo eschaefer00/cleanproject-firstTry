@@ -10,7 +10,9 @@ import de.dhbw.cleanproject.domain.repositories.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -18,11 +20,14 @@ import java.util.UUID;
 public class TodoApplicationService implements TodoApplication {
     private final TodoRepository todoRepository;
 
-    @Autowired
-    public TodoApplicationService(TodoRepository todoRepository){this.todoRepository = todoRepository;}
+    public List<Todo> findAllTodos(){
+        return this.todoRepository.findAllTodos();
+    }
 
-
-    public List<Todo> findAllTodos(){return this.todoRepository.findAllTodos();}
+    @Override
+    public List<Todo> findAllTodosByCategoryAggregateId(UUID categoryAggregateId) {
+        return todoRepository.findByCategoryAggregateId(categoryAggregateId);
+    }
 
     public Optional<Todo> findTodoById(UUID id){
         return this.todoRepository.findTodoById(id);

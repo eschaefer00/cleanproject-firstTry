@@ -12,4 +12,5 @@ public class CleanProjectApplication {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
         SpringApplication.run(CleanProjectApplication.class, args);
     }
+
 }

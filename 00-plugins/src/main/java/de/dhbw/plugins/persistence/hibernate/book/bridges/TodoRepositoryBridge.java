@@ -4,28 +4,27 @@ import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
 import de.dhbw.cleanproject.domain.models.todo.Todo;
 import de.dhbw.cleanproject.domain.repositories.TodoRepository;
 import de.dhbw.plugins.persistence.hibernate.book.springdata.SpringDataTodoRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
+@RequiredArgsConstructor
 public class TodoRepositoryBridge implements TodoRepository {
     private final SpringDataTodoRepository springDataTodoRepository;
 
-    @Autowired
-    public TodoRepositoryBridge(final SpringDataTodoRepository springDataTodoRepository) {
-        this.springDataTodoRepository = springDataTodoRepository;
-    }
     @Override
     public List<Todo> findAllTodos() {
-        return this.springDataTodoRepository.findAllTodos();
+        return this.springDataTodoRepository.findAll();
     }
 
     @Override
-    public List<Todo> findTodoByCategory(int category) {
-        return this.springDataTodoRepository.findTodoByCategory(category);
+    public List<Todo> findByCategoryAggregateId(UUID categoryAggregateId) {
+        return this.springDataTodoRepository.findByCategoryAggregateId(categoryAggregateId);
     }
 
     @Override
@@ -34,8 +33,8 @@ public class TodoRepositoryBridge implements TodoRepository {
     }
 
     @Override
-    public Todo findTodoById(UUID id) {
-        return this.springDataTodoRepository.findTodoById(id);
+    public Optional<Todo> findTodoById(UUID id) {
+        return this.springDataTodoRepository.findById(id);
     }
 
     @Override
