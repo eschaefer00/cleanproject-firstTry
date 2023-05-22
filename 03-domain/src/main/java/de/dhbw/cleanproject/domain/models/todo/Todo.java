@@ -47,13 +47,13 @@ public class Todo {
     private LocalDate deadline;
 
     @Column(name="status") //backlog, dashboard/planned, done
-    private int status;
+    private StatusTodo status;
 
     @Column(name="points")
     private int points;
 
     public static class TodoBuilder {
-        public static Todo create(String title, String description, UUID categoryAggregateId, PriorityTodo priority, LocalDate deadline, int status, int points) {
+        public static Todo create(String title, String description, UUID categoryAggregateId, PriorityTodo priority, LocalDate deadline, StatusTodo status, int points) {
             //todo validierung
             return Todo.builder()
                     .id(UUID.randomUUID())

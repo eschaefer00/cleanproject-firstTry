@@ -1,8 +1,8 @@
-package de.dhbw.plugins.persistence.hibernate.book.bridges;
+package de.dhbw.plugins.persistence.hibernate.bridges;
 
 import de.dhbw.cleanproject.domain.models.Category;
 import de.dhbw.cleanproject.domain.repositories.CategoryRepository;
-import de.dhbw.plugins.persistence.hibernate.book.springdata.SpringDataCategoryRepository;
+import de.dhbw.plugins.persistence.hibernate.springdata.SpringDataCategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

@@ -1,11 +1,10 @@
-package de.dhbw.plugins.persistence.hibernate.book.bridges;
+package de.dhbw.plugins.persistence.hibernate.bridges;
 
 import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
 import de.dhbw.cleanproject.domain.models.todo.Todo;
 import de.dhbw.cleanproject.domain.repositories.TodoRepository;
-import de.dhbw.plugins.persistence.hibernate.book.springdata.SpringDataTodoRepository;
+import de.dhbw.plugins.persistence.hibernate.springdata.SpringDataTodoRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

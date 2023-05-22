@@ -1,4 +1,4 @@
-package de.dhbw.cleanproject.application;
+package de.dhbw.cleanproject.application.todo;
 
 import de.dhbw.cleanproject.application.todo.data.CreateTodoData;
 import de.dhbw.cleanproject.domain.models.todo.Todo;
@@ -8,7 +8,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface TodoApplication {
-
 
     List<Todo> findAllTodos();
 

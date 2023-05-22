@@ -1,7 +1,7 @@
 package de.dhbw.plugins.rest.todos;
 
 import de.dhbw.cleanproject.adapter.mappers.todo.create.RawToCreateTodoDataMapper;
-import de.dhbw.cleanproject.application.TodoApplication;
+import de.dhbw.cleanproject.application.todo.TodoApplication;
 import de.dhbw.cleanproject.application.category.CategoryApplication;
 import de.dhbw.cleanproject.domain.models.todo.Todo;
 import de.dhbw.plugins.rest.model.todo.TodoPreviewModel;

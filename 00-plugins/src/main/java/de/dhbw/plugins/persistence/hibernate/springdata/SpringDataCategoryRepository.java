@@ -1,4 +1,4 @@
-package de.dhbw.plugins.persistence.hibernate.book.springdata;
+package de.dhbw.plugins.persistence.hibernate.springdata;
 
 import de.dhbw.cleanproject.domain.models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
