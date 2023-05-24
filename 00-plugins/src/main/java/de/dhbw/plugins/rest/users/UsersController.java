@@ -1,9 +1,9 @@
 package de.dhbw.plugins.rest.users;
 
-import de.dhbw.cleanproject.adapter.mappers.UserToUserResourceMapper;
+import de.dhbw.cleanproject.adapter.mappers.user.UserToUserResourceMapper;
 import de.dhbw.cleanproject.adapter.resources.UserResource;
 import de.dhbw.cleanproject.application.user.UserApplicationService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/user")
+@RequiredArgsConstructor
 public class UsersController {
 
 

@@ -40,6 +40,12 @@ public class TodoApplicationService implements TodoApplication {
         return Optional.of(todo);
     }
 
+    @Override
+    public boolean existsByIds(UUID todoId, UUID categoryAggregateId) {
+        return this.todoRepository.existsByIds(todoId, categoryAggregateId);
+    }
+
+    @Override
     public Todo save(Todo todo){
         return this.todoRepository.save(todo);
     }

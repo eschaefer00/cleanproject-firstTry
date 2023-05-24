@@ -1,20 +1,16 @@
-package de.dhbw.plugins.rest.todos.data;
+package de.dhbw.plugins.rest.todo.data;
 
 import de.dhbw.cleanproject.adapter.mappers.todo.create.RawCreateTodoData;
-import de.dhbw.cleanproject.adapter.mappers.todo.update.RawUpdateTodoData;
 import de.dhbw.cleanproject.domain.models.Category;
 import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
 import de.dhbw.cleanproject.domain.models.todo.StatusTodo;
 import de.dhbw.plugins.rest.customvalidatior.ValueOfEnum;
 import de.dhbw.plugins.rest.customvalidatior.ValueOfUUID;
 import lombok.Data;
-import org.hibernate.type.CurrencyType;
 
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Data
 public class CreateTodoData implements RawCreateTodoData {

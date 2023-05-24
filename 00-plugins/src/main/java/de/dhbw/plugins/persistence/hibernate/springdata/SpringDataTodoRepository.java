@@ -16,4 +16,7 @@ public interface SpringDataTodoRepository extends JpaRepository<Todo, UUID> {
     @Query("SELECT t FROM Todo t WHERE t.priority = ?1")
     List<Todo> findTodoByPriority(PriorityTodo priority);
 
+    @Query("SELECT t.id FROM Todo t WHERE t.id = ?1 and t.categoryAggregateId = ?2")
+    List<UUID> findByIdWithCategoryAggregateId(UUID id, UUID categoryAggregateId);
+
 }

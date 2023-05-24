@@ -1,4 +1,4 @@
-package de.dhbw.cleanproject.adapter.mappers;
+package de.dhbw.cleanproject.adapter.mappers.user;
 
 import de.dhbw.cleanproject.adapter.resources.UserResource;
 import org.springframework.stereotype.Component;

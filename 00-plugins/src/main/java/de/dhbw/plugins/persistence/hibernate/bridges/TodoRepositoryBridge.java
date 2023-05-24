@@ -37,6 +37,11 @@ public class TodoRepositoryBridge implements TodoRepository {
     }
 
     @Override
+    public boolean existsByIds(UUID id, UUID categoryAggregateId) {
+        return springDataTodoRepository.findByIdWithCategoryAggregateId(id, categoryAggregateId).size() > 0;
+    }
+
+    @Override
     public Todo save(final Todo todo) {
         return this.springDataTodoRepository.save(todo);
     }

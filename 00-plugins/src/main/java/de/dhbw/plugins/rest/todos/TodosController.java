@@ -6,7 +6,7 @@ import de.dhbw.cleanproject.application.category.CategoryApplication;
 import de.dhbw.cleanproject.domain.models.todo.Todo;
 import de.dhbw.plugins.rest.model.todo.TodoPreviewModel;
 import de.dhbw.plugins.rest.model.todo.mapper.TodoToPreviewModelMapper;
-import de.dhbw.plugins.rest.todos.data.CreateTodoData;
+import de.dhbw.plugins.rest.todo.data.CreateTodoData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,12 +35,5 @@ public class TodosController {
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping
-    public ResponseEntity<TodoPreviewModel> create(@PathVariable("userId") UUID userId, @PathVariable("categoryAggregateId") UUID categoryAggregateId, @Valid @RequestBody CreateTodoData data) {
-        if (!categoryApplication.existsByIds(categoryAggregateId, userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        Optional<Todo> optionalTodo = todoApplication.create(categoryAggregateId, rawToCreateTodoDataMapper.apply(data));
-        if (!optionalTodo.isPresent()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return ResponseEntity.ok(todoToPreviewModelMapper.apply(optionalTodo.get()));
-    }
 
 }

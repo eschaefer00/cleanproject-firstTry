@@ -12,4 +12,14 @@ import java.util.UUID;
 public class TodoPreviewModel {
     private final UUID id;
     private final String title;
+    /*
+    private String description;
+    private UUID categoryAggregateId;
+    private Category categoryAggregate;
+    private PriorityTodo priority;
+    private LocalDate deadline;
+    private StatusTodo status;
+    private int points;
+
+     */
 }
