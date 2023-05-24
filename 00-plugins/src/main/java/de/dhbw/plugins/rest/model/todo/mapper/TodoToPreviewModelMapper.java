@@ -10,11 +10,11 @@ import java.util.function.Function;
 public class TodoToPreviewModelMapper implements Function<Todo, TodoPreviewModel> {
 
     @Override
-    public TodoPreviewModel apply(final Todo resource) {
-        return map(resource);
+    public TodoPreviewModel apply(final Todo todo) {
+        return map(todo);
     }
 
-    private TodoPreviewModel map(final Todo resource) {
-        return TodoPreviewModel.builder().id(resource.getId()).title(resource.getTitle()).build();
+    private TodoPreviewModel map(final Todo todo) {
+        return TodoPreviewModel.builder().id(todo.getId()).title(todo.getTitle()).build();
     }
 }

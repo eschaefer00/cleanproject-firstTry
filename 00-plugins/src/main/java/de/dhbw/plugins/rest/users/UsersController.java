@@ -16,15 +16,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UsersController {
 
-
     private final UserApplicationService userApplicationService;
     private final UserToUserResourceMapper userToUserResourceMapper;
-
-    @Autowired
-    public UsersController(final UserApplicationService userApplicationService, final UserToUserResourceMapper userToUserResourceMapper){
-        this.userApplicationService = userApplicationService;
-        this.userToUserResourceMapper = userToUserResourceMapper;
-    }
 
     @RequestMapping(method = RequestMethod.GET)
     public List<UserResource> getUsers(){

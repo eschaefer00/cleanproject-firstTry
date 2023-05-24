@@ -16,6 +16,8 @@ public interface TodoRepository {
 
     Optional<Todo> findTodoById(UUID id);
 
+    boolean existsByIds(UUID todoId, UUID categoryAggregateId);
+
     Todo save(Todo todo);
 
 }

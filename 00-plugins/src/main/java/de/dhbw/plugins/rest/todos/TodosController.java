@@ -28,11 +28,19 @@ public class TodosController {
     private final TodoToPreviewModelMapper todoToPreviewModelMapper;
     private final RawToCreateTodoDataMapper rawToCreateTodoDataMapper;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<TodoPreviewModel>> listAll(@PathVariable("userId") UUID userId, @PathVariable("categoryAggregateId") UUID categoryAggregateId) {
         if (!categoryApplication.existsByIds(categoryAggregateId, userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         List<TodoPreviewModel> result = todoApplication.findAllTodosByCategoryAggregateId(categoryAggregateId).stream().map(todoToPreviewModelMapper::apply).collect(Collectors.toList());
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping
+    public ResponseEntity<TodoPreviewModel> create(@PathVariable("userId") UUID userId, @PathVariable("categoryAggregateId") UUID categoryAggregateId, @Valid @RequestBody CreateTodoData data) {
+        if (!categoryApplication.existsByIds(categoryAggregateId, userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        Optional<Todo> optionalTodo = todoApplication.create(categoryAggregateId, rawToCreateTodoDataMapper.apply(data));
+        if (!optionalTodo.isPresent()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return ResponseEntity.ok(todoToPreviewModelMapper.apply(optionalTodo.get()));
     }
 
 

@@ -35,33 +35,33 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>properties-maven-plugin</artifactId>
-                <version>1.1.0</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>read-project-properties</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <files>
-                        <file>${basedir}/src/main/resources/application.properties</file>
-                    </files>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>properties-maven-plugin</artifactId>-->
+<!--                <version>1.1.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>initialize</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>read-project-properties</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <files>-->
+<!--                        <file>${basedir}/src/main/resources/application.properties</file>-->
+<!--                    </files>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>9.15.1</version>
                 <configuration>
-                    <url>${spring.datasource.url}</url>
-                    <user>${spring.datasource.username}</user>
-                    <password>${spring.datasource.password}</password>
+                    <url>jdbc:postgresql://localhost:5432/cleanproject?useSSL=false</url>
+                    <user>cleanproject</user>
+                    <password>cleanproject</password>
                     <cleanDisabled>false</cleanDisabled>
                 </configuration>
                 <dependencies>
@@ -88,9 +88,9 @@
 
                 <configuration>
                     <driver>org.postgresql.Driver</driver>
-                    <url>${spring.datasource.url}</url>
-                    <username>${spring.datasource.username}</username>
-                    <password>${spring.datasource.password}</password>
+                    <url>jdbc:postgresql://localhost:5432/cleanproject?useSSL=false</url>
+                    <username>cleanproject</username>
+                    <password>cleanproject</password>
                     <settingsKey>sensibleKey</settingsKey>
                     <fileset>
                         <basedir>${basedir}/src/test/resources/db/seed/</basedir>

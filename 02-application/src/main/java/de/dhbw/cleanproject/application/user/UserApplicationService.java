@@ -11,12 +11,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class UserApplicationService {
+@RequiredArgsConstructor
+public class UserApplicationService implements UserApplication {
 
     private final UserRepository userRepository;
-
-    @Autowired
-    private UserApplicationService(final UserRepository userRepository){this.userRepository=userRepository;}
 
     public List<User> findAll() {
         return userRepository.findAllUsers();
