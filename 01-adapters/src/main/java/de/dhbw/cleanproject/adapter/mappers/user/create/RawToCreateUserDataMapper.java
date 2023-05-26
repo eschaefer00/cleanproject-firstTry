@@ -2,11 +2,17 @@ package de.dhbw.cleanproject.adapter.mappers.user.create;
 
 import de.dhbw.cleanproject.application.user.data.CreateUserData;
 import de.dhbw.cleanproject.valueobject.email.Email;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.function.Function;
 @Component
+@RequiredArgsConstructor
 public class RawToCreateUserDataMapper implements Function<RawCreateUserData, CreateUserData> {
+
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     @Override
     public CreateUserData apply(final RawCreateUserData data) {
@@ -14,8 +20,15 @@ public class RawToCreateUserDataMapper implements Function<RawCreateUserData, Cr
     }
 
     private CreateUserData map(final RawCreateUserData data) {
+
+        CreateUserData.CreateUserDataBuilder builder = CreateUserData.builder();
+
         Email email = new Email(data.getEmail());
 
-        return CreateUserData.builder().name(data.getName()).email(email).build();
+        builder.timeRegistered(LocalDate.parse(data.getTimeRegistered(), formatter));
+
+        builder.name(data.getName()).email(email).password(data.getPassword()).points(data.getPoints());
+
+        return builder.build();
     }
 }

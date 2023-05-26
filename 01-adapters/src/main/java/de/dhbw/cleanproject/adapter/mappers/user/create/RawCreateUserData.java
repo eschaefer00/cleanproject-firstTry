@@ -1,12 +1,10 @@
 package de.dhbw.cleanproject.adapter.mappers.user.create;
 
-import java.time.LocalDate;
-
 public interface RawCreateUserData {
+    String getId();
     String getEmail();
-    String getUsername();
-    String getPassword();
     String getName();
+    String getPassword();
     int getPoints();
-    LocalDate getTimeRegistered();
+    String getTimeRegistered();
 }

@@ -6,7 +6,7 @@ import de.dhbw.cleanproject.application.category.CategoryApplication;
 import de.dhbw.cleanproject.domain.models.todo.Todo;
 import de.dhbw.plugins.rest.model.todo.TodoPreviewModel;
 import de.dhbw.plugins.rest.model.todo.mapper.TodoToPreviewModelMapper;
-import de.dhbw.plugins.rest.todo.data.CreateTodoData;
+import de.dhbw.plugins.rest.todos.data.CreateTodoData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,6 @@
-package de.dhbw.plugins.rest.todo.data;
+package de.dhbw.plugins.rest.todos.data;
 
 import de.dhbw.cleanproject.adapter.mappers.todo.create.RawCreateTodoData;
-import de.dhbw.cleanproject.domain.models.Category;
 import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
 import de.dhbw.cleanproject.domain.models.todo.StatusTodo;
 import de.dhbw.plugins.rest.customvalidatior.ValueOfEnum;
@@ -25,9 +24,6 @@ public class CreateTodoData implements RawCreateTodoData {
     @NotEmpty(message = "The category is required.")
     @ValueOfUUID(message = "The bookingCategoryId is invalid UUID.")
     private String categoryAggregateId;
-
-
-    private Category categoryAggregate;
 
     @NotEmpty(message = "Priority is required.")
     @ValueOfEnum(enumClass = PriorityTodo.class, message = "Invalid priority type")

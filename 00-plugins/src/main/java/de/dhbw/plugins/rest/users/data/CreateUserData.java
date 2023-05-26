@@ -1,4 +1,4 @@
-package de.dhbw.plugins.rest.user.data;
+package de.dhbw.plugins.rest.users.data;
 
 import de.dhbw.cleanproject.adapter.mappers.user.create.RawCreateUserData;
 import de.dhbw.cleanproject.domain.models.todo.StatusTodo;
@@ -9,10 +9,12 @@ import lombok.Data;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 public class CreateUserData implements RawCreateUserData {
-
+    @NotEmpty(message = "The ID is required.")
+    private UUID id;
     @NotEmpty(message = "The title is required.")
     private String email;
 

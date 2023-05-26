@@ -4,7 +4,7 @@ import de.dhbw.cleanproject.adapter.mappers.user.create.RawToCreateUserDataMappe
 import de.dhbw.cleanproject.application.user.UserApplication;
 import de.dhbw.plugins.rest.model.todo.TodoPreviewModel;
 import de.dhbw.plugins.rest.model.user.mapper.UserToPreviewModelMapper;
-import de.dhbw.plugins.rest.user.data.CreateUserData;
+import de.dhbw.plugins.rest.users.data.CreateUserData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

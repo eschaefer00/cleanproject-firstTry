@@ -1,4 +1,4 @@
-package de.dhbw.cleanproject.adapter.mappers;
+package de.dhbw.cleanproject.adapter.mappers.category;
 
 import de.dhbw.cleanproject.adapter.resources.CategoryResource;
 import de.dhbw.cleanproject.domain.models.Category;
@@ -12,6 +12,6 @@ public class CategoryToCategoryResourceMapper implements Function<Category, Cate
     public CategoryResource apply(final Category category){return map(category);}
 
     private CategoryResource map(final Category category){
-        return new CategoryResource(category.getTitle(), category.getDescription());
+        return new CategoryResource(category.getTitle(), category.getDescription(), category.getUserId(), category.getUser());
     }
 }

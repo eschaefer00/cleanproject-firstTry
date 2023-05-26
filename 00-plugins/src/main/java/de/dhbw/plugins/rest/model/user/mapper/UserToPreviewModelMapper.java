@@ -14,7 +14,6 @@ public class UserToPreviewModelMapper implements Function<User, UserPreviewModel
     }
 
     private UserPreviewModel map(final User resource) {
-        return UserPreviewModel.builder().id(resource.getId()).name(resource.getName()).build();
+        return UserPreviewModel.builder().id(resource.getId()).name(resource.getName()).email(resource.getEmail()).password(resource.getPassword()).points(resource.getPoints()).timeRegistered(resource.getTimeRegistered()).build();
     }
-
 }
