@@ -46,4 +46,9 @@ public class TodoRepositoryBridge implements TodoRepository {
         return this.springDataTodoRepository.save(todo);
     }
 
+    @Override
+    public void deleteById(UUID todoId) {
+        this.springDataTodoRepository.deleteById(todoId);
+    }
+
 }

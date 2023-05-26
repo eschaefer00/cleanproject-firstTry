@@ -1,6 +1,5 @@
 package de.dhbw.plugins.rest.model.category;
 
-import de.dhbw.cleanproject.domain.models.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +14,4 @@ public class CategoryPreviewModel {
     private final String title;
     private final String description;
     private final UUID userId;
-    private final User user;
 }

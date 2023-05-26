@@ -28,8 +28,24 @@ public class CategoryRepositoryBridge implements CategoryRepository {
     public Category save(final Category category){return this.springDataCategoryRepository.save(category);}
 
     @Override
-    public Boolean existsByIds(UUID id, UUID userId) {
+    public boolean existsByIds(UUID id, UUID userId) {
         return springDataCategoryRepository.selectAllByIds(id, userId).contains(id);
+    }
+
+    @Override
+    public List<Category> findByUserId(UUID userId) {
+        return springDataCategoryRepository.findByUserId(userId);
+    }
+
+    @Override
+    public boolean existsById(UUID userId) {
+        return springDataCategoryRepository.selectAllById(userId);
+    }
+
+    @Override
+    public void deleteById(UUID categoryAggregateId) {
+        springDataCategoryRepository.deleteById(categoryAggregateId);
+
     }
 
 }

@@ -6,5 +6,5 @@ public interface RawCreateUserData {
     String getName();
     String getPassword();
     int getPoints();
-    String getTimeRegistered();
+    String getDateRegistered();
 }

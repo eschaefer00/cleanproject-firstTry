@@ -11,5 +11,8 @@ public interface SpringDataCategoryRepository extends JpaRepository<Category, UU
 
     @Query("SELECT c.id FROM Category c WHERE c.id = ?1 and c.userId = ?2")
     List<UUID> selectAllByIds(UUID id, UUID userId);
-
+    @Query("SELECT c.id FROM Category c WHERE c.userId = ?1")
+    List<Category> findByUserId(UUID userId);
+    @Query("SELECT c.id FROM Category c WHERE c.userId = ?1")
+    boolean selectAllById(UUID userId);
 }

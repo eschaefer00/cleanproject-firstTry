@@ -14,6 +14,11 @@ public interface CategoryRepository {
 
     Category save(Category category);
 
-    Boolean existsByIds(UUID id, UUID userId);
+    boolean existsByIds(UUID id, UUID userId);
 
+    List<Category> findByUserId(UUID userId);
+
+    boolean existsById(UUID userId);
+
+    void deleteById(UUID categoryAggregateId);
 }

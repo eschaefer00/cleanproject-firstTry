@@ -25,7 +25,7 @@ public class RawToCreateUserDataMapper implements Function<RawCreateUserData, Cr
 
         Email email = new Email(data.getEmail());
 
-        builder.timeRegistered(LocalDate.parse(data.getTimeRegistered(), formatter));
+        builder.dateRegistered(LocalDate.parse(data.getDateRegistered(), formatter));
 
         builder.name(data.getName()).email(email).password(data.getPassword()).points(data.getPoints());
 

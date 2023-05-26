@@ -2,7 +2,9 @@ package de.dhbw.cleanproject.adapter.mappers.user.update;
 
 public interface RawUpdateUserData {
     String getId();
-    String getTitle();
-    String getDescription();
-    String  getUserId();
+    String getEmail();
+    String getName();
+    String getPassword();
+    int getPoints();
+    String getDateRegistered();
 }

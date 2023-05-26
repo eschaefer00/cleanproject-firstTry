@@ -35,8 +35,8 @@ public class User {
     @Column(name="points")
     private int points;
 
-    @Column(name = "time_registered")
-    private LocalDate timeRegistered;
+    @Column(name = "date_registered")
+    private LocalDate dateRegistered;
 
 
     public static class UserBuilder {
@@ -48,7 +48,7 @@ public class User {
                     .password(password)
                     .name(name)
                     .points(points)
-                    .timeRegistered(timeRegistered)
+                    .dateRegistered(timeRegistered)
                     .build();
         }
     }

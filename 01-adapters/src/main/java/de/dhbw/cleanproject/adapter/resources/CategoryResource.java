@@ -20,11 +20,9 @@ public class CategoryResource {
     public String getName() {
         return name;
     }
-
     public String getDescription() {
         return description;
     }
-
     public UUID getUserId(){return userId;}
     public User getUser(){return user;}
 }

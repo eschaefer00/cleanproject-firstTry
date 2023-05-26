@@ -4,47 +4,42 @@ import de.dhbw.cleanproject.adapter.mappers.todo.create.RawCreateTodoData;
 import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
 import de.dhbw.cleanproject.domain.models.todo.StatusTodo;
 import de.dhbw.plugins.rest.customvalidatior.ValueOfEnum;
+import de.dhbw.plugins.rest.customvalidatior.ValueOfLocalDate;
 import de.dhbw.plugins.rest.customvalidatior.ValueOfUUID;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 @Data
 public class CreateTodoData implements RawCreateTodoData {
+    @NotEmpty(message = "The ID is required.")
+    @ValueOfUUID(message = "The ID must be a UUID.")
+    private String id;
 
     @NotEmpty(message = "The title is required.")
     @Size(min = 2, max = 100, message = "The length of full title must be between 2 and 100 characters.")
     private String title;
 
-    @Size(min = 2, max = 500, message = "The length of description title must be between 2 and 500 characters.")
+    @Size(min = 2, max = 500, message = "The length of the description must be between 2 and 500 characters.")
     private String description;
 
-    @NotEmpty(message = "The category is required.")
+    @NotEmpty(message = "The categoryID is required.")
     @ValueOfUUID(message = "The bookingCategoryId is invalid UUID.")
     private String categoryAggregateId;
 
     @NotEmpty(message = "Priority is required.")
-    @ValueOfEnum(enumClass = PriorityTodo.class, message = "Invalid priority type")
+    @ValueOfEnum(enumClass = PriorityTodo.class, message = "Invalid type for a priority.")
     private String priority;
 
-    private LocalDate deadline;
+    @ValueOfLocalDate(message = "The deadline must be a LocalDate.")
+    private String deadline;
 
     @NotEmpty(message = "Status is required.")
-    @ValueOfEnum(enumClass = StatusTodo.class, message = "Invalid status type")
+    @ValueOfEnum(enumClass = StatusTodo.class, message = "Invalid type for status.")
     private String status;
 
+    @PositiveOrZero(message = "Points cannot get below zero as you cannot spend more points than you own.")
     private int points;
-
-//    @DecimalMin(value = "0.0", message = "The amount is not valid.")
-//    private Double amount;
-//
-//    @NotEmpty(message = "The currencyType is required.")
-//    @ValueOfEnum(enumClass = CurrencyType.class, message = "Invalid currency type")
-//    private String currencyType;
-//
-//    @ValueOfUUID(message = "The bookingCategoryId is invalid UUID.")
-//    private String bookingCategoryAggregateId;
-
 }

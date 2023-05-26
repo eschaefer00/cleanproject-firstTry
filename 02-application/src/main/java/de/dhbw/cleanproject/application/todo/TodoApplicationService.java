@@ -53,4 +53,14 @@ public class TodoApplicationService implements TodoApplication {
     public Todo save(Todo todo){
         return this.todoRepository.save(todo);
     }
+
+    @Override
+    public boolean delete(UUID userId, UUID todoId) {
+        Optional<Todo> todo = findTodoById(todoId);
+        if(todo.isPresent()){
+            this.todoRepository.deleteById(todoId);
+            return true;
+        }
+        return false;
+    }
 }

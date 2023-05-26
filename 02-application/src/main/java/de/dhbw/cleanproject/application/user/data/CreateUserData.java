@@ -15,6 +15,6 @@ public class CreateUserData {
     private final String password;
     private final String name;
     private final int points;
-    private final LocalDate timeRegistered;
+    private final LocalDate dateRegistered;
 }
 

@@ -23,4 +23,9 @@ public interface TodoApplication {
     Optional<Todo> update(Todo todo, UpdateTodoData data);
 
     Todo save(Todo todo);
+
+    boolean delete(UUID userId, UUID todoId);
+
+
 }
+
