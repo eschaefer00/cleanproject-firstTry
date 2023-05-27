@@ -21,7 +21,6 @@ public class TodoController {
 
     private final TodoApplication todoApplication;
     private final RawToUpdateTodoDataMapper rawToUpdateTodoDataMapper;
-
     private final CategoryApplication categoryApplication;
 
     @GetMapping

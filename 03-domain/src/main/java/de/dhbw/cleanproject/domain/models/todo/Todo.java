@@ -2,7 +2,6 @@ package de.dhbw.cleanproject.domain.models.todo;
 
 import de.dhbw.cleanproject.domain.models.Category;
 import lombok.*;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name="Todo")
+@Table(name="todo")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Todo {

@@ -14,6 +14,7 @@ public class TodoToPreviewModelMapper implements Function<Todo, TodoPreviewModel
         return map(todo);
     }
 
+    //todo: fix this mapper?
     private TodoPreviewModel map(final Todo todo) {
         return TodoPreviewModel.builder().id(todo.getId()).title(todo.getTitle()).priority(todo.getPriority()).deadline(todo.getDeadline()).status(todo.getStatus()).points(todo.getPoints()).build();
     }
