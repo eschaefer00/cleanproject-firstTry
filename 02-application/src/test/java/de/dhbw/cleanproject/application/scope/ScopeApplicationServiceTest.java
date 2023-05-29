@@ -1,17 +1,17 @@
 package de.dhbw.cleanproject.application.scope;
 
-import de.dhbw.cleanproject.application.scope.ScopeApplicationService;
 import de.dhbw.cleanproject.application.scope.data.CreateScopeData;
 import de.dhbw.cleanproject.application.scope.data.UpdateScopeData;
 import de.dhbw.cleanproject.domain.models.Scope;
 import de.dhbw.cleanproject.domain.repositories.ScopeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
-import java.time.LocalDate;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 

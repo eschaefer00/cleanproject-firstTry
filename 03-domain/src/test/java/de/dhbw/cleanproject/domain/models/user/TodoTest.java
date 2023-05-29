@@ -1,7 +1,5 @@
 package de.dhbw.cleanproject.domain.models.user;
 
-import de.dhbw.cleanproject.domain.models.Category;
-import de.dhbw.cleanproject.domain.models.Scope;
 import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
 import de.dhbw.cleanproject.domain.models.todo.StatusTodo;
 import de.dhbw.cleanproject.domain.models.todo.Todo;
@@ -11,7 +9,6 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TodoTest {
 

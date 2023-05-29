@@ -1,7 +1,5 @@
 package de.dhbw.cleanproject.adapter.resources;
 
-import de.dhbw.cleanproject.domain.models.User;
-
 import java.util.UUID;
 
 public class CategoryResource {

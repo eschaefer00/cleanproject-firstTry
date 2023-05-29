@@ -1,9 +1,7 @@
 package de.dhbw.cleanproject.adapter.resources;
 
-import de.dhbw.cleanproject.domain.models.Scope;
 import de.dhbw.cleanproject.domain.models.todo.PriorityTodo;
 import de.dhbw.cleanproject.domain.models.todo.StatusTodo;
-import net.bytebuddy.build.Plugin;
 
 import java.time.LocalDate;
 import java.util.UUID;
