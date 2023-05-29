@@ -25,8 +25,8 @@ public class CreateTodoData implements RawCreateTodoData {
     @Size(min = 2, max = 500, message = "The length of the description must be between 2 and 500 characters.")
     private String description;
 
-    @NotEmpty(message = "The categoryID is required.")
-    @ValueOfUUID(message = "The bookingCategoryId is invalid UUID.")
+    @NotEmpty(message = "The categoryAggregateID is required.")
+    @ValueOfUUID(message = "The categoryAggregateId is invalid UUID.")
     private String categoryAggregateId;
 
     @NotEmpty(message = "Priority is required.")
@@ -42,4 +42,7 @@ public class CreateTodoData implements RawCreateTodoData {
 
     @PositiveOrZero(message = "Points cannot get below zero as you cannot spend more points than you own.")
     private int points;
+
+    @ValueOfUUID(message = "The bookingCategoryId is invalid UUID.")
+    private String scopeAggregateId;
 }

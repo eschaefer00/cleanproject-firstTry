@@ -39,7 +39,7 @@ public class TodoApplicationService implements TodoApplication {
 
     @Override
     public Optional<Todo> create(UUID categoryAggregateId, CreateTodoData data){
-        Todo todo = Todo.TodoBuilder.create(data.getTitle(), data.getDescription(), data.getCategoryAggregateId(), data.getPriority(), data.getDeadline(), data.getStatus(), data.getPoints());
+        Todo todo = Todo.TodoBuilder.create(data.getTitle(), data.getDescription(), data.getCategoryAggregateId(), data.getPriority(), data.getDeadline(), data.getStatus(), data.getPoints(), data.getScopeAggregateId());
         todoRepository.save(todo);
         return Optional.of(todo);
     }

@@ -11,21 +11,21 @@ public class UserResource {
     private final String password;
     private final String name;
     private final int points;
-    private final LocalDate timeRegistered;
+    private final LocalDate dateRegistered;
 
-    public UserResource(final UUID id, final Email email, final String password, final String name, final int points, final LocalDate timeRegistered) {
+    public UserResource(final UUID id, final Email email, final String password, final String name, final int points, final LocalDate dateRegistered) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;
         this.points = points;
-        this.timeRegistered = timeRegistered;
+        this.dateRegistered = dateRegistered;
     }
 
     public UUID getId() {
         return id;
     }
-    public Email getEmail(){ return email; }
+    public Email getEmail() { return email; }
     public String getPassword() {
         return password;
     }
@@ -35,7 +35,7 @@ public class UserResource {
     public int getPoints() {
         return points;
     }
-    public LocalDate getTimeRegistered() {
-        return timeRegistered;
+    public LocalDate getDateRegistered() {
+        return dateRegistered;
     }
 }

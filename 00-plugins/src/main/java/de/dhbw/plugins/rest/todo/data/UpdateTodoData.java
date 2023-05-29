@@ -17,22 +17,32 @@ public class UpdateTodoData implements RawUpdateTodoData {
     @NotEmpty(message = "The ID is required.")
     @ValueOfUUID(message = "The ID must be a UUID.")
     private final String id;
+
     @NotEmpty(message = "The title is required.")
     @Size(min = 2, max = 100, message = "The length of full title must be between 2 and 100 characters.")
     private final String title;
+
     @Size(min = 2, max = 500, message = "The length of full title must be between 2 and 500 characters.")
     private String description;
+
     @NotEmpty(message = "The category is required.")
     @ValueOfUUID(message = "The categoryID must be a UUID.")
     private String categoryAggregateId;
+
     @NotEmpty(message = "Priority is required.")
     @ValueOfEnum(enumClass = PriorityTodo.class, message = "Invalid priority type")
     private String priority;
+
     @ValueOfLocalDate(message = "The deadline must be a LocalDate.")
     private String deadline;
+
     @NotEmpty(message = "Status is required.")
     @ValueOfEnum(enumClass = StatusTodo.class, message = "Invalid status type")
     private String status;
+
     @PositiveOrZero(message = "The points cannot be below zero as you cannot spend more points than you own.")
     private int points;
+
+    @ValueOfUUID(message = "The scopeAggregateId is invalid UUID.")
+    private String scopeAggregateId;
 }

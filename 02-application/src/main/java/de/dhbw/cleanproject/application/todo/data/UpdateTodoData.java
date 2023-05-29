@@ -20,4 +20,5 @@ public class UpdateTodoData {
     private final LocalDate deadline;
     private final StatusTodo status;
     private final int points;
+    private final UUID scopeAggregateId;
 }

@@ -8,13 +8,11 @@ public class CategoryResource {
     private final String name;
     private final String description;
     private final UUID userId;
-    private final User user;
 
-    public CategoryResource(final String name, final String description, final UUID userId, final User user) {
+    public CategoryResource(final String name, final String description, final UUID userId) {
         this.name = name;
         this.description = description;
         this.userId = userId;
-        this.user = user;
     }
 
     public String getName() {
@@ -24,5 +22,4 @@ public class CategoryResource {
         return description;
     }
     public UUID getUserId(){return userId;}
-    public User getUser(){return user;}
 }

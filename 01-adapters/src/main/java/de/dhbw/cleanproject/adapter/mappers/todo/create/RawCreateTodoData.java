@@ -8,4 +8,5 @@ public interface RawCreateTodoData {
     String getDeadline();
     String getStatus();
     int getPoints();
+    String getScopeAggregateId();
 }

@@ -14,7 +14,7 @@ public class UserToUserResourceMapper implements Function<User, UserResource> {
    }
 
    private UserResource map(final User user){
-       return new UserResource(user.getId(), user.getEmail(), user.getName(), user.getPassword(), user.getPoints(), user.getTimeRegistered());
+       return new UserResource(user.getId(), user.getEmail(), user.getName(), user.getPassword(), user.getPoints(), user.getDateRegistered());
    }
 
 }

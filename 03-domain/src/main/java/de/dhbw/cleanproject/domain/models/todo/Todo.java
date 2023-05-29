@@ -1,6 +1,7 @@
 package de.dhbw.cleanproject.domain.models.todo;
 
 import de.dhbw.cleanproject.domain.models.Category;
+import de.dhbw.cleanproject.domain.models.Scope;
 import lombok.*;
 
 import javax.persistence.*;
@@ -51,8 +52,16 @@ public class Todo {
     @Column(name="points")
     private int points;
 
+    @Column(name="scope_aggregate_id", nullable = false)
+//    @Type(type="uuid-char")
+    private UUID scopeAggregateId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "scope_aggregate_id", nullable = true, updatable = false, insertable = false)
+    private Scope scopeAggregate;
+
     public static class TodoBuilder {
-        public static Todo create(String title, String description, UUID categoryAggregateId, PriorityTodo priority, LocalDate deadline, StatusTodo status, int points) {
+        public static Todo create(String title, String description, UUID categoryAggregateId, PriorityTodo priority, LocalDate deadline, StatusTodo status, int points, UUID scopeAggregateId) {
             //todo validierung
             return Todo.builder()
                     .id(UUID.randomUUID())
@@ -64,6 +73,7 @@ public class Todo {
                     .deadline(deadline)
                     .status(status)
                     .points(points)
+                    .scopeAggregateId(scopeAggregateId)
                     .build();
         }
     }
