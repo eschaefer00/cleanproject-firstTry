@@ -56,7 +56,6 @@ public class TodoApplicationService implements TodoApplication {
 
     @Override
     public boolean delete(UUID userId, UUID todoId) {
-        //todo: check if todo exists for particular user
         Optional<Todo> todo = findTodoById(todoId);
         if(todo.isPresent()){
             this.todoRepository.deleteById(todoId);

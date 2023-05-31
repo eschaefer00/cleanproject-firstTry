@@ -5,4 +5,5 @@ public interface RawCreateScopeData {
     String getStartDate();
     String getEndDate();
     int getTodoAmount();
+    String getUserId();
 }

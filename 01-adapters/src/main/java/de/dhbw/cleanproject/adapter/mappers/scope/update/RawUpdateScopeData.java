@@ -5,4 +5,5 @@ public interface RawUpdateScopeData {
     String getStartDate();
     String getEndDate();
     int getTodoAmount();
+    String getUserId();
 }

@@ -41,7 +41,6 @@ public class User {
 
     public static class UserBuilder {
         public static User create(Email email, String password, String name, int points, LocalDate timeRegistered) {
-            //todo validierung
             return User.builder()
                     .id(UUID.randomUUID())
                     .email(email)

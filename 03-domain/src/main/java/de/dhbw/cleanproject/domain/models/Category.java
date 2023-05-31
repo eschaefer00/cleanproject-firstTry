@@ -28,7 +28,6 @@ public class Category {
     private String description;
 
     @Column(name="user_id", nullable = false)
-//    @Type(type="uuid-char")
     private UUID userId;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -37,7 +36,6 @@ public class Category {
 
     public static class CategoryBuilder {
         public static Category create(String title, String description, UUID userId) {
-            //todo validierung
             return Category.builder()
                     .id(UUID.randomUUID())
                     .title(title)

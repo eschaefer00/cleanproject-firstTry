@@ -32,6 +32,6 @@ public class ScopeRepositoryBridge implements ScopeRepository {
 
     @Override
     public List<Scope> findByUserId(UUID userId) {
-        return this.springDataScopeRepository.findByUserId();
+        return this.springDataScopeRepository.findByUserId(userId);
     }
 }

@@ -2,6 +2,7 @@ package de.dhbw.plugins.rest.scope.data;
 
 import de.dhbw.cleanproject.adapter.mappers.scope.update.RawUpdateScopeData;
 import de.dhbw.plugins.rest.customvalidatior.ValueOfLocalDate;
+import de.dhbw.plugins.rest.customvalidatior.ValueOfUUID;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
@@ -22,4 +23,8 @@ public class UpdateScopeData implements RawUpdateScopeData {
 
     @Positive(message = "The Scope needs a minimum of one todo")
     private int todoAmount;
+
+    @ValueOfUUID(message = "The userId must be of type UUID")
+    private String userId;
+
 }

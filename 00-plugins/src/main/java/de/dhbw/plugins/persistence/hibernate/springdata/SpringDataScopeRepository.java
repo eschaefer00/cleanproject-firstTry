@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface SpringDataScopeRepository extends JpaRepository<Scope, UUID> {
-    @Query("")//todo:fix the query
-    List<Scope> findByUserId();
+    @Query("SELECT s.id FROM Scope s WHERE s.userId = ?1")
+    List<Scope> findByUserId(UUID userId);
 }

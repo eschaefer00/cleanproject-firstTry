@@ -28,7 +28,6 @@ public class ScopeApplicationService implements ScopeApplication{
 
     @Override
     public boolean delete(UUID userId, UUID scopeId) {
-        //todo: check if scope exists for user
         Optional<Scope> scope = findScopeById(scopeId);
         if(scope.isPresent()){
             this.scopeRepository.deleteById(scopeId);
@@ -44,7 +43,7 @@ public class ScopeApplicationService implements ScopeApplication{
 
     @Override
     public Optional<Scope> create(UUID userId, CreateScopeData data) {
-        Scope scope = Scope.ScopeBuilder.create(data.getTitle(), data.getStartDate(), data.getEndDate(), data.getTodoAmount());
+        Scope scope = Scope.ScopeBuilder.create(data.getTitle(), data.getStartDate(), data.getEndDate(), data.getTodoAmount(), data.getUserId());
         scopeRepository.save(scope);
         return Optional.of(scope);
     }

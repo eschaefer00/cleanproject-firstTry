@@ -53,7 +53,6 @@ public class Todo {
     private int points;
 
     @Column(name="scope_aggregate_id", nullable = false)
-//    @Type(type="uuid-char")
     private UUID scopeAggregateId;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -62,7 +61,6 @@ public class Todo {
 
     public static class TodoBuilder {
         public static Todo create(String title, String description, UUID categoryAggregateId, PriorityTodo priority, LocalDate deadline, StatusTodo status, int points, UUID scopeAggregateId) {
-            //todo validierung
             return Todo.builder()
                     .id(UUID.randomUUID())
                     .title(title)

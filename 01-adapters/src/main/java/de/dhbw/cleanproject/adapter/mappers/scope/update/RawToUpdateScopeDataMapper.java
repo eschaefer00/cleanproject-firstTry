@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 import java.util.function.Function;
 
 @Component
@@ -20,6 +21,11 @@ public class RawToUpdateScopeDataMapper implements Function<RawUpdateScopeData, 
 
         builder.startDate(LocalDate.parse(data.getStartDate(), formatter));
         builder.endDate(LocalDate.parse(data.getEndDate(), formatter));
+
+        if (data.getUserId() != null){
+            builder.userId(UUID.fromString(data.getUserId()));
+        }
+
         builder.title(data.getTitle()).todoAmount(data.getTodoAmount());
         return builder.build();
     }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class CreateScopeDataTest {
 
@@ -15,6 +16,7 @@ public class CreateScopeDataTest {
         LocalDate startDate = LocalDate.of(2023, 1, 1);
         LocalDate endDate = LocalDate.of(2023, 12, 31);
         int todoAmount = 10;
+        UUID userId = UUID.randomUUID();
 
         // Use the builder to create an instance of CreateScopeData
         CreateScopeData scopeData = CreateScopeData.builder()
@@ -22,6 +24,7 @@ public class CreateScopeDataTest {
                 .startDate(startDate)
                 .endDate(endDate)
                 .todoAmount(todoAmount)
+                .userId(userId)
                 .build();
 
         // Verify the values are correctly set
@@ -29,5 +32,6 @@ public class CreateScopeDataTest {
         Assertions.assertEquals(startDate, scopeData.getStartDate());
         Assertions.assertEquals(endDate, scopeData.getEndDate());
         Assertions.assertEquals(todoAmount, scopeData.getTodoAmount());
+        Assertions.assertEquals(userId, scopeData.getUserId());
     }
 }

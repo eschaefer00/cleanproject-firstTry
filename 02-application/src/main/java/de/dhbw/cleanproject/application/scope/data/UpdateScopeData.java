@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Builder
 @Data
@@ -12,5 +13,5 @@ public class UpdateScopeData {
     private final LocalDate startDate;
     private final LocalDate endDate;
     private final int todoAmount;
-
+    private final UUID userId;
 }
