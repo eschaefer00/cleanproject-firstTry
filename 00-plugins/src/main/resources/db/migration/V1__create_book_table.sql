@@ -27,6 +27,15 @@ CREATE TABLE todo (
     constraint pk_todo primary key (id)
 );
 
+CREATE TABLE scope (
+    id uuid not null,
+    title varchar(255),
+    startDate date not null,
+    endDate date not null,
+    todoAmount int not null,
+    constraint pk_scope primary key (id)
+    );
+
 
 alter table if exists category add constraint FK7ffrpnxaflomhdh0qfk2jcndo foreign key (user_id) references users;
 

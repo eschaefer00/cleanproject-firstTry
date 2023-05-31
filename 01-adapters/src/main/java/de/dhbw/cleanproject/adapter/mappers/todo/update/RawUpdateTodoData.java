@@ -8,7 +8,7 @@ public interface RawUpdateTodoData {
     String getDeadline();
     String getStatus();
     int getPoints();
-    String scopeAggregateId();
+    String getScopeAggregateId();
 }
 
 
