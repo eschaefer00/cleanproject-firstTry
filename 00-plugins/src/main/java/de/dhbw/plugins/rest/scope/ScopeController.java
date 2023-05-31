@@ -26,8 +26,7 @@ public class ScopeController {
     public ResponseEntity<Scope> findOne(@PathVariable("scopeId") UUID scopeId, @PathVariable("userId") UUID userId){
         if(!userApplication.existsById(userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         Optional<Scope> optionalScope = scopeApplication.findScopeById(scopeId);
-        if (optionalScope.isEmpty()) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        return ResponseEntity.ok(optionalScope.get());
+        return optionalScope.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.FORBIDDEN));
     }
 
     @PatchMapping
@@ -36,8 +35,7 @@ public class ScopeController {
         Optional<Scope> optionalScope = scopeApplication.findScopeById(scopeId);
         if (optionalScope.isEmpty()) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         optionalScope = scopeApplication.update(optionalScope.get(), rawToUpdateScopeDataMapper.apply(data));
-        if (optionalScope.isEmpty()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return ResponseEntity.ok(optionalScope.get());
+        return optionalScope.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
     @DeleteMapping

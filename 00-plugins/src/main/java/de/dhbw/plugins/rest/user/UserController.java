@@ -31,8 +31,7 @@ public class UserController {
         Optional<User> optionalUser = userApplication.findUserById(userId);
         if (optionalUser.isEmpty()) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         optionalUser = userApplication.update(optionalUser.get(), rawToUpdateUserDataMapper.apply(data));
-        if (optionalUser.isEmpty()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return ResponseEntity.ok(optionalUser.get());
+        return optionalUser.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
     @DeleteMapping

@@ -38,8 +38,7 @@ public class ScopesController {
     public ResponseEntity<ScopePreviewModel> create(@PathVariable("userId") UUID userId, @Valid @RequestBody CreateScopeData data) {
         if (!userApplication.existsById(userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         Optional<Scope> optionalScope = scopeApplication.create(userId, rawToCreateScopeDataMapper.apply(data));
-        if (optionalScope.isEmpty()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return ResponseEntity.ok(scopeToPreviewModelMapper.apply(optionalScope.get()));
+        return optionalScope.map(scope -> ResponseEntity.ok(scopeToPreviewModelMapper.apply(scope))).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
 }

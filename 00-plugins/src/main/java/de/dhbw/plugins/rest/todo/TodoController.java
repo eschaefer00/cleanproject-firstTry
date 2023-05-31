@@ -27,8 +27,7 @@ public class TodoController {
     public ResponseEntity<Todo> findOne(@PathVariable("todoId") UUID todoId, @PathVariable("categoryAggregateId") UUID categoryAggregateId, @PathVariable("userId") UUID userId) {
         if (!categoryApplication.existsByIds(categoryAggregateId, userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         Optional<Todo> optionalTodo = todoApplication.findTodoById(todoId);
-        if (optionalTodo.isEmpty()) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        return ResponseEntity.ok(optionalTodo.get());
+        return optionalTodo.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.FORBIDDEN));
     }
 
     @PatchMapping
@@ -38,8 +37,7 @@ public class TodoController {
         Optional<Todo> optionalTodo = todoApplication.findTodoById(todoId);
         if (optionalTodo.isEmpty()) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         optionalTodo = todoApplication.update(optionalTodo.get(), rawToUpdateTodoDataMapper.apply(data));
-        if (optionalTodo.isEmpty()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return ResponseEntity.ok(optionalTodo.get());
+        return optionalTodo.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
     @DeleteMapping

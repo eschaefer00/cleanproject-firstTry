@@ -36,8 +36,7 @@ public class CategoriesController {
         public ResponseEntity<CategoryPreviewModel> create(@PathVariable("userId") UUID userId, @Valid @RequestBody CreateCategoryData data) {
             if (!categoryApplication.existsById(userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             Optional<Category> optionalCategory = categoryApplication.create(userId, rawToCreateCategoryDataMapper.apply(data));
-            if (!optionalCategory.isPresent()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            return ResponseEntity.ok(categoryToPreviewModelMapper.apply(optionalCategory.get()));
+            return optionalCategory.map(category -> ResponseEntity.ok(categoryToPreviewModelMapper.apply(category))).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
         }
 
 }

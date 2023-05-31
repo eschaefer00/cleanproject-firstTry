@@ -38,7 +38,6 @@ public class UsersController {
     public ResponseEntity<UserPreviewModel> create(@Valid @RequestBody CreateUserData data) {
 
         Optional<User> optionalUser = userApplication.create(rawToCreateUserDataMapper.apply(data));
-        if (!optionalUser.isPresent()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return ResponseEntity.ok(userToPreviewModelMapper.apply(optionalUser.get()));
+        return optionalUser.map(user -> ResponseEntity.ok(userToPreviewModelMapper.apply(user))).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 }

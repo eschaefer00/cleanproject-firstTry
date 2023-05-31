@@ -24,8 +24,7 @@ public class CategoryController {
     public ResponseEntity<Category> findOne(@PathVariable("userId") UUID userId, @PathVariable("categoryAggregateId") UUID categoryAggregateId) {
         if (!categoryApplication.existsByIds(categoryAggregateId, userId)) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         Optional<Category> optionalCategory = categoryApplication.findCategoryById(categoryAggregateId);
-        if (optionalCategory.isEmpty()) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        return ResponseEntity.ok(optionalCategory.get());
+        return optionalCategory.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.FORBIDDEN));
     }
 
     @PatchMapping
@@ -34,8 +33,7 @@ public class CategoryController {
         Optional<Category> optionalCategory = categoryApplication.findCategoryById(categoryAggregateId);
         if (optionalCategory.isEmpty()) return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         optionalCategory = categoryApplication.update(optionalCategory.get(), rawToUpdateCategoryDataMapper.apply(data));
-        if (optionalCategory.isEmpty()) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return ResponseEntity.ok(optionalCategory.get());
+        return optionalCategory.map(ResponseEntity::ok).orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 
     @DeleteMapping
